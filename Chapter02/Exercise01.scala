@@ -4,10 +4,13 @@ object Exercise01 {
     def greaterBy(x: Box, y: Box, f: Box => Double): Box = 
         if (f(x) > f(y)) x else y
 
-    def main(args: Array[String]): Unit = {
-        val wider: (Box, Box) => Box = greaterBy(_, _, p => p.width)
-        val taller: (Box, Box) => Box = greaterBy(_, _, p => p.height)
+    def wider(x: Box, y: Box): Box =
+        greaterBy(x, y, _.width)
 
+    def taller(x: Box, y: Box): Box =
+        greaterBy(x, y, _.height)
+
+    def main(args: Array[String]): Unit = {
         val a = Box(3, 4)
         val b = Box(2, 5)
 
